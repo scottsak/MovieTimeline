@@ -1,0 +1,9 @@
+buttons #AAABB8
+
+Background ##464866
+
+bcolor #5CDB95
+
+Background #2E9CCA
+
+text #29648A

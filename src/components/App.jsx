@@ -1,9 +1,11 @@
 import React from 'react';
+import Card from './Card.jsx';
 
 function App() {
   return (
-    <div className="App">
-      
+    <div>
+      <h1 id="gameTitle">Movie Game</h1>
+      <Card />
     </div>
   );
 }
