@@ -7,5 +7,25 @@ body {
 }
 
 #gameTitle{
-  padding: 40px 0px;;
+  padding: 40px 0px;
+  font-size: 60px;
+}
+
+.card{
+  height:100px;
+  width: 50px;
+  background-color: red;
+  position: absolute;
+  z-index: 9;
+  text-align: center;
+  border: 1px solid #d3d3d3;
+  cursor: move;
+}
+
+.boardGame{
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  border: 5px solid #FFFF00;
+  padding: 10px;
 }

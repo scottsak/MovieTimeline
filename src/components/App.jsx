@@ -5,7 +5,9 @@ function App() {
   return (
     <div>
       <h1 id="gameTitle">Movie Game</h1>
-      <Card />
+      <div class="boardGame">
+        <Card />
+      </div>
     </div>
   );
 }
