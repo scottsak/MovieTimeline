@@ -11,7 +11,7 @@ axios
   .then(res => {
     console.log(`statusCode: ${res.status}`)
     console.log(res)
-    console.log()
+    console.log(`posterPath: ${res.data.poster_path}`)
   })
   .catch(error => {
     console.error(error)

@@ -12,8 +12,9 @@ body {
 }
 
 .card{
-  height:100px;
-  width: 50px;
+  /* height:30px; */
+  width: 300px;
+  height: 500px;
   background-color: red;
   position: absolute;
   z-index: 9;
@@ -31,3 +32,7 @@ body {
     width: 100px;
     height: 100px;
   }
+
+.cardPoster{
+  width: 300px;
+}
