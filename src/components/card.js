@@ -8,15 +8,6 @@ const movies = [
     }
 ];
 
-function createCard(movieDetail){
-    return (
-      <Card
-        img = {movieDetail.img}
-        title = {movieDetail.title}
-      />
-    );
-  }
-
 function addMovie(movie) {
     const mov = {
         img: "https://api.themoviedb.org/3/movie/"+movie.data.poster_path,
@@ -30,4 +21,4 @@ function addMovie(movie) {
     console.log(movies);
 }
 
-export {addMovie, movies, createCard};
+export {addMovie, movies};
