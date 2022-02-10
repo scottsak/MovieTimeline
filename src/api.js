@@ -1,6 +1,6 @@
 // import axios from 'axios';
 import * as moviesFile from "./components/card.js";
-
+import * as app from "./components/App.jsx";
 
 const apiKEY = "api_key=9192af8a9192f6deb676dc0150d2e4aa&language=en-US";
 const baseURL = "https://api.themoviedb.org/3/movie/"
@@ -29,6 +29,8 @@ function newMovie(){
         console.error(error)
         console.log("hello there was an error")
     })
+
+
 
 }
 

@@ -5,6 +5,8 @@ import * as api from "../api.js";
 
 function Card(props){
 
+
+
     return(
       <Draggable>
         <div className="card">
