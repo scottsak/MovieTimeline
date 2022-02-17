@@ -34,4 +34,4 @@ function newMovie(){
 
 }
 
-export {newMovie};
+export {newMovie, apiKEY};

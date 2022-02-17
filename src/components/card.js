@@ -1,5 +1,6 @@
 // import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
 import Card from './Card.jsx';
+import * as api from "../api.js";
 
 const movies = [
     {
@@ -10,7 +11,7 @@ const movies = [
 
 function addMovie(movie) {
     const mov = {
-        img: "https://api.themoviedb.org/3/movie/"+movie.data.poster_path,
+        img: "https://image.tmdb.org/t/p/original/"+movie.data.poster_path,
         title: movie.data.title
     }
 
