@@ -9,7 +9,7 @@ const urlTest = 'https://api.themoviedb.org/3/movie/550?api_key=9192af8a9192f6de
 const axios = require('axios')
 
 function getRandMovie(){
-    return (Math.floor((Math.random()*100)+1)).toString();
+    return (Math.floor((Math.random()*1000)+1)).toString();
 }
 
 
@@ -27,7 +27,7 @@ function newMovie(){
     })
     .catch(error => {
         console.error(error)
-        console.log("hello there was an error")
+        newMovie();
     })
 
 
