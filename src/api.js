@@ -24,6 +24,7 @@ function newMovie(){
         console.log("posterpath")
         console.log(`posterPath: ${res.data.poster_path}`)
         moviesFile.addMovie(res)
+
     })
     .catch(error => {
         console.error(error)

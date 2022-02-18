@@ -10,8 +10,8 @@ function Card(props){
     return(
       <Draggable>
         <div className="card">
-            <img className = "cardPoster" draggable="false" src={props.moviePoster} />
-            <p className = "cardInfo" >{props.movieTitle}</p>
+            <img className = "cardPoster" draggable="false" src={props.poster} alt={props.title}/>
+            <p className = "cardInfo" >{props.title}</p>
         </div>
       </Draggable>
     )
