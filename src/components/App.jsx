@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import Card from './Card.jsx';
 import * as card from './card.js';
 import * as api from '../api.js'
+import {DragDropContext} from 'react-beautiful-dnd';
 
 
 
@@ -11,7 +12,8 @@ function App() {
   const [movieData, setMovie] = useState([]);
   let newMovie = {
       poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-      title: "Fight Club"
+      title: "Fight Club",
+      release_date: "1999-11-11"
   }
 
   // const [moviePoster, setMoviePoster] = useState(card.movies[0].img);
@@ -37,6 +39,7 @@ function App() {
       <h1 id="gameTitle">Movie Game</h1>
       <button onClick={changeMovie}>Click me!</button>
       <div className="boardGame">
+      <DragDropContext>
       {movieData.map((movieItem, index) => {
       return (
 
@@ -50,6 +53,7 @@ function App() {
 
       );
     })}
+    </DragDropContext>
       </div>
     </div>
   );

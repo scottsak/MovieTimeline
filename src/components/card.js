@@ -13,7 +13,8 @@ function addMovie(movie) {
     let randNum = Math.floor(Math.random() * (19 - 1 + 0)) + 0;
     const mov = {
         poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
-        title: movie.data.results[randNum].title
+        title: movie.data.results[randNum].title,
+        date: movie.data.results[randNum].release_date
     }
 
 
