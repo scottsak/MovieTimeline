@@ -8,14 +8,14 @@ function Card(props){
 
 
     return(
-      <Draggable>
+      // <Draggable>
         <li class="timelineCard">
           <div className="card">
               <img className = "cardPoster" draggable="false" src={props.poster} alt={props.title}/>
               <p className = "cardInfo" >{props.title}</p>
           </div>
         </li>
-      </Draggable>
+      // </Draggable>
     )
 }
 

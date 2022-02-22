@@ -4,9 +4,11 @@ import * as api from "../api.js";
 
 const movies = [
     {
-        poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-        title: "Fight Club"
+      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      title: "Fight Club",
+      release_date: "1999-11-11"
     }
+
 ];
 
 function addMovie(movie) {

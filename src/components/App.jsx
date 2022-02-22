@@ -5,7 +5,29 @@ import * as api from '../api.js'
 import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 
 
+const movieTestList = [
+    {
+      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      title: "Fight Club",
+      release_date: "1999-11-11"
+    },
+    {
+      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      title: "Funny",
+      release_date: "1999-11-11"
+    },
+    {
+      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      title: "Sad",
+      release_date: "1999-11-11"
+    },
+    {
+      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      title: "Scary",
+      release_date: "1999-11-11"
+    }
 
+];
 
 
 function App() {
@@ -16,9 +38,6 @@ function App() {
       release_date: "1999-11-11"
   }
 
-  // const [moviePoster, setMoviePoster] = useState(card.movies[0].img);
-  // const [movieTitle, setMovieTitle] = useState(card.movies[0].title);
-
 
   function changeMovie(){
     api.newMovie();
@@ -28,10 +47,6 @@ function App() {
     setMovie(prevMovies => {
       return [...prevMovies, newMovie];
     });
-  //   setMoviePoster(card.movies[card.movies.length-1].img);
-  //   console.log("This is the movie poster: "+card.movies[card.movies.length-1].img);
-  //   setMovieTitle(card.movies[card.movies.length-1].title);
-  //   console.log("This is the movie title: "+ card.movies[card.movies.length-1].title);
   }
 
   return (
@@ -40,19 +55,23 @@ function App() {
       <button onClick={changeMovie}>Click me!</button>
       <div className="boardGame">
       <DragDropContext>
-        <ul class="timelineCards">
-          {movieData.map((movieItem, index) => {
-          return (
-            <Card
-              key={index}
-              id={index}
-              title={movieItem.title}
-              poster={movieItem.poster_path}
-              date = {movieItem.release_date}
-            />
-          );
-        })}
-      </ul>
+      <Droppable droppableId="characters">
+          {(provided) => (
+          <ul class="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
+            {movieData.map((movieItem, index) => {
+            return (
+              <Card
+                key={index}
+                id={index}
+                title={movieItem.title}
+                poster={movieItem.poster_path}
+                date = {movieItem.release_date}
+                />
+              );
+            })}
+          </ul>
+          )}
+        </Droppable>
     </DragDropContext>
       </div>
     </div>
