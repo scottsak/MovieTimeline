@@ -10,19 +10,29 @@ body {
   padding: 40px 0px;
   font-size: 60px;
 }
+.timelineCards{
+  list-style-type: none;
+}
+
+.timelineCard{
+  display: flex !important;
+  padding: 20px 100px;
+  float: left !important;
+}
 
 .card{
+  /* display: inline; */
   /* height:30px; */
   width: 150px;
   height: 270px;
   background-color: #464866;
-  position: absolute;
+  /* position: absolute; */
   /* z-index: 9; */
   text-align: center;
   /* border: 1px solid #d3d3d3; */
-  cursor: move;
-  margin-top: -100px;
-  margin-left: -20px;
+  /* cursor: move; */
+  /* margin-top: -100px;
+  margin-left: -20px; */
 }
 
 .cardInfo{

@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Card from './Card.jsx';
 import * as card from './card.js';
 import * as api from '../api.js'
-import {DragDropContext} from 'react-beautiful-dnd';
+import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 
 
 
@@ -40,19 +40,19 @@ function App() {
       <button onClick={changeMovie}>Click me!</button>
       <div className="boardGame">
       <DragDropContext>
-      {movieData.map((movieItem, index) => {
-      return (
-
-        <Card
-          key={index}
-          id={index}
-          title={movieItem.title}
-          poster={movieItem.poster_path}
-          date = {movieItem.release_date}
-        />
-
-      );
-    })}
+        <ul class="timelineCards">
+          {movieData.map((movieItem, index) => {
+          return (
+            <Card
+              key={index}
+              id={index}
+              title={movieItem.title}
+              poster={movieItem.poster_path}
+              date = {movieItem.release_date}
+            />
+          );
+        })}
+      </ul>
     </DragDropContext>
       </div>
     </div>
