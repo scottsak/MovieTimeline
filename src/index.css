@@ -16,7 +16,7 @@ body {
 
 .timelineCard{
   display: flex !important;
-  padding: 20px 100px;
+  padding: 20px 10px;
   float: left !important;
 }
 
@@ -44,6 +44,16 @@ body {
     top: 60%;
     height: 100px;
   }
+
+  div.scroll {
+        margin: 4px, 4px;
+        padding: 4px;
+        background-color: #08c708;
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
 
 .cardPoster{
   width: 150px;

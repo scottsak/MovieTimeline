@@ -53,7 +53,7 @@ function App() {
     <div>
       <h1 id="gameTitle">Movie Game</h1>
       <button onClick={changeMovie}>Click me!</button>
-      <div className="boardGame">
+      <div className="boardGame scroll">
       <DragDropContext>
       <Droppable droppableId="characters">
           {(provided) => (
