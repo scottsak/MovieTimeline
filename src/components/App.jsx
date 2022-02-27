@@ -53,6 +53,8 @@ function App() {
     <div>
       <h1 id="gameTitle">Movie Game</h1>
       <button onClick={changeMovie}>Click me!</button>
+      <div class="emptySpace">
+      </div>
       <div className="boardGame scroll">
       <DragDropContext>
       <Droppable droppableId="characters">
@@ -67,12 +69,12 @@ function App() {
                 poster={movieItem.poster_path}
                 date = {movieItem.release_date}
                 />
-              );
-            })}
-          </ul>
+                );
+              })}
+            </ul>
           )}
-        </Droppable>
-    </DragDropContext>
+          </Droppable>
+        </DragDropContext>
       </div>
     </div>
   );

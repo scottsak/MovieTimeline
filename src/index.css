@@ -10,15 +10,7 @@ body {
   padding: 40px 0px;
   font-size: 60px;
 }
-.timelineCards{
-  list-style-type: none;
-}
 
-.timelineCard{
-  display: flex !important;
-  padding: 20px 10px;
-  float: left !important;
-}
 
 .card{
   /* display: inline; */
@@ -39,21 +31,34 @@ body {
   margin-top: 10px;
 }
 
+.emptySpace{
+  height: 300px;
+}
+
 .boardGame{
-    position: absolute;
+    /* position: absolute; */
     top: 60%;
-    height: 100px;
+    height: 300px;
   }
 
-  div.scroll {
-        margin: 4px, 4px;
-        padding: 4px;
-        background-color: #08c708;
-        width: 100%;
-        overflow-x: auto;
-        overflow-y: hidden;
-        white-space: nowrap;
-    }
+  .scroll {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+  }
+
+  .timelineCard {
+    height: 300px;
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+  }
+
+  .timelineCard:hover {
+    background-color: #777;
+  }
 
 .cardPoster{
   width: 150px;
