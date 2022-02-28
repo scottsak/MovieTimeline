@@ -37,7 +37,7 @@ function App() {
           <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
             {movieData.map((movieItem, index) => {
             return (
-              <Draggable key={index} draggableId={index} index={index}>
+              <Draggable key={movieItem.title} draggableId={movieItem.title} index={index}>
               {(provided) => (
               <li className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                 <div className="card">
