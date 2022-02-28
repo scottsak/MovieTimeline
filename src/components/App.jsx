@@ -24,6 +24,14 @@ function App() {
     });
   }
 
+  function handleOnDragEnd(result){
+    const items = Array.from(movieData);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    setMovie(items);
+  }
+
   return (
     <div>
       <h1 id="gameTitle">Movie Game</h1>
@@ -31,7 +39,7 @@ function App() {
       <div className="emptySpace">
       </div>
       <div className="boardGame scroll">
-      <DragDropContext>
+      <DragDropContext onDragEnd={handleOnDragEnd}>
       <Droppable droppableId="characters" direction="horizontal">
           {(provided) => (
           <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
