@@ -13,18 +13,10 @@ body {
 
 
 .card{
-  /* display: inline; */
-  /* height:30px; */
   width: 150px;
   height: 270px;
   background-color: #464866;
-  /* position: absolute; */
-  /* z-index: 9; */
   text-align: center;
-  /* border: 1px solid #d3d3d3; */
-  /* cursor: move; */
-  /* margin-top: -100px;
-  margin-left: -20px; */
 }
 
 .cardInfo{
@@ -35,30 +27,25 @@ body {
   height: 300px;
 }
 
-.boardGame{
-    /* position: absolute; */
-    top: 60%;
-    height: 300px;
-  }
 
-  .scroll {
-    background-color: #333;
-    overflow: auto;
-    white-space: nowrap;
-  }
+.scroll {
+  /* background-color: #333; */
+  overflow: auto;
+  white-space: nowrap;
+}
 
-  .timelineCard {
-    height: 300px;
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px;
-    text-decoration: none;
-  }
+.timelineCard {
+  height: 300px;
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
 
-  .timelineCard:hover {
-    background-color: #777;
-  }
+.timelineCard:hover {
+  background-color: #777;
+}
 
 .cardPoster{
   width: 150px;
