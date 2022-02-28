@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import Card from './Card.jsx';
 import * as card from './card.js';
 import * as api from '../api.js'
-import {DragDropContext, Droppable} from 'react-beautiful-dnd';
+import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 
 
 function App() {
@@ -28,22 +28,26 @@ function App() {
     <div>
       <h1 id="gameTitle">Movie Game</h1>
       <button onClick={changeMovie}>Click me!</button>
-      <div class="emptySpace">
+      <div className="emptySpace">
       </div>
       <div className="boardGame scroll">
       <DragDropContext>
       <Droppable droppableId="characters">
           {(provided) => (
-          <ul class="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
+          <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
             {movieData.map((movieItem, index) => {
             return (
-              <Card
-                key={index}
-                id={index}
-                title={movieItem.title}
-                poster={movieItem.poster_path}
-                date = {movieItem.release_date}
-                />
+              <Draggable key={index} draggableId={index} index={index}>
+              {(provided) => (
+              <li className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                <div className="card">
+                    <img className = "cardPoster" src={movieItem.poster_path} alt={movieItem.title}/>
+                    <p className = "cardInfo" >{movieItem.title}</p>
+                    <p className = "cardInfo">{movieItem.release_date}</p>
+                </div>
+              </li>
+               )}
+              </Draggable>
                 );
               })}
             </ul>
