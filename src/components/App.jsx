@@ -32,7 +32,7 @@ function App() {
       </div>
       <div className="boardGame scroll">
       <DragDropContext>
-      <Droppable droppableId="characters">
+      <Droppable droppableId="characters" direction="horizontal">
           {(provided) => (
           <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
             {movieData.map((movieItem, index) => {
@@ -50,6 +50,7 @@ function App() {
               </Draggable>
                 );
               })}
+              {provided.placeholder}
             </ul>
           )}
           </Droppable>
