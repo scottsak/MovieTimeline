@@ -16,7 +16,7 @@ function addMovie(movie) {
     const mov = {
         poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
         title: movie.data.results[randNum].title,
-        date: movie.data.results[randNum].release_date
+        release_date: movie.data.results[randNum].release_date
     }
 
 
