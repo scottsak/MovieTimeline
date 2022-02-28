@@ -5,31 +5,6 @@ import * as api from '../api.js'
 import {DragDropContext, Droppable} from 'react-beautiful-dnd';
 
 
-const movieTestList = [
-    {
-      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-      title: "Fight Club",
-      release_date: "1999-11-11"
-    },
-    {
-      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-      title: "Funny",
-      release_date: "1999-11-11"
-    },
-    {
-      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-      title: "Sad",
-      release_date: "1999-11-11"
-    },
-    {
-      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-      title: "Scary",
-      release_date: "1999-11-11"
-    }
-
-];
-
-
 function App() {
   const [movieData, setMovie] = useState([]);
   let newMovie = {
