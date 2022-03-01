@@ -48,11 +48,12 @@ function App() {
               <Draggable key={movieItem.title} draggableId={movieItem.title} index={index}>
               {(provided) => (
               <li className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                <div className="card">
-                    <img className = "cardPoster" src={movieItem.poster_path} alt={movieItem.title}/>
-                    <p className = "cardInfo" >{movieItem.title}</p>
-                    <p className = "cardInfo">{movieItem.release_date}</p>
-                </div>
+                <Card
+                  key={index}
+                  title = {movieItem.title}
+                  poster = {movieItem.poster_path}
+                  date = {movieItem.release_date}
+                />
               </li>
                )}
               </Draggable>

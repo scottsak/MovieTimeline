@@ -14,17 +14,18 @@ body {
 
 .card{
   width: 150px;
-  height: 270px;
+  /* height: 270px; */
   background-color: #464866;
   text-align: center;
 }
 
 .cardInfo{
   margin-top: 10px;
+  width: 150px;
 }
 
 .emptySpace{
-  height: 300px;
+  height: 200px;
 }
 
 
@@ -35,7 +36,7 @@ body {
 }
 
 .timelineCard {
-  height: 300px;
+  height: 400px;
   display: inline-block;
   color: white;
   text-align: center;

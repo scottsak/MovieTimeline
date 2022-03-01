@@ -4,16 +4,14 @@ import Draggable from 'react-draggable';
 import * as api from "../api.js";
 
 function Card(props){
-
+  console.log(props.date);
+  console.log(props.title);
 
 
     return(
-        <li class="timelineCard">
           <div className="card">
-              <img className = "cardPoster" draggable="false" src={props.poster} alt={props.title}/>
-              <p className = "cardInfo" >{props.title}</p>
+              <img className = "cardPoster" src={props.poster} alt={props.title}/>
           </div>
-        </li>
     )
 }
 

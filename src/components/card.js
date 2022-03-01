@@ -13,17 +13,32 @@ const movies = [
 
 function addMovie(movie) {
     let randNum = Math.floor(Math.random() * (19 - 1 + 0)) + 0;
-    const mov = {
-        poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
-        title: movie.data.results[randNum].title,
-        release_date: movie.data.results[randNum].release_date
+    let movieFound = true;
+    let count=0;
+    let mov = {};
+    while(movieFound){
+      console.log("going through");
+      if(!movie.data.results[randNum].adult && movie.data.results[randNum].vote_count > 1500){
+        mov = {
+            poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
+            title: movie.data.results[randNum].title,
+            release_date: movie.data.results[randNum].release_date
+        }
+        movies.push(mov);
+        console.log("what is going through")
+        console.log(movies.length-1);
+        console.log(movies);
+        movieFound=false;
+      }
+      else if(count<10){
+        randNum = Math.floor(Math.random() * (19 - 1 + 0)) + 0;
+        count++;
+      }
+      else{
+        api.newMovie();
+        break;
+      }
     }
-
-
-    movies.push(mov);
-    console.log("what is going through")
-    console.log(movies.length-1);
-    console.log(movies);
 }
 
 export {addMovie, movies};
