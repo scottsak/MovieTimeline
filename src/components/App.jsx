@@ -50,6 +50,7 @@ function App() {
               <li className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                 <Card
                   key={index}
+                  used= {true}
                   title = {movieItem.title}
                   poster = {movieItem.poster_path}
                   date = {movieItem.release_date}

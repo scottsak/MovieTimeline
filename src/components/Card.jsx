@@ -3,15 +3,28 @@ import './card.js';
 import Draggable from 'react-draggable';
 import * as api from "../api.js";
 
+
 function Card(props){
   console.log(props.date);
   console.log(props.title);
 
 
-    return(
-          <div className="card">
-              <img className = "cardPoster" src={props.poster} alt={props.title}/>
-          </div>
+  function CardUsed(props) {
+    const used = props.used;
+    if (used) {
+      return <p className="cardInfo">{props.date}</p>;
+    }
+  }
+
+
+  return(
+      <div className="card">
+          <img className = "cardPoster" src={props.poster} alt={props.title}/>
+          <CardUsed
+            used = {props.used}
+            date = {props.date}
+          />
+      </div>
     )
 }
 
