@@ -6,7 +6,8 @@ const movies = [
     {
       poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
       title: "Fight Club",
-      release_date: "1999-11-11"
+      release_date: "1999-11-11",
+      id: 5349505
     }
 
 ];
@@ -22,7 +23,8 @@ function addMovie(movie) {
         mov = {
             poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
             title: movie.data.results[randNum].title,
-            release_date: movie.data.results[randNum].release_date
+            release_date: movie.data.results[randNum].release_date,
+            id: movie.data.results[randNum].id
         }
         movies.push(mov);
         console.log("what is going through")

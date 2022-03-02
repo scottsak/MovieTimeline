@@ -14,7 +14,12 @@ function Card(props){
     if (used) {
       return <p className="cardInfo">{props.date}</p>;
     }
+    else{
+      return <p></p>
+    }
   }
+
+  console.log(props.id);
 
 
   return(
