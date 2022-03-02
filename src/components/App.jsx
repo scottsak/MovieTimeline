@@ -13,6 +13,11 @@ function App() {
       release_date: "1999-11-11"
   }
 
+  const testMovie = {
+      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
+      title: "Runaways",
+      release_date: "2021-11-11"
+  }
 
   function changeMovie(){
     api.newMovie();
@@ -36,11 +41,36 @@ function App() {
     <div>
       <h1 id="gameTitle">Movie Game</h1>
       <button onClick={changeMovie}>Click me!</button>
-      <div className="emptySpace">
-      </div>
-      <div className="boardGame scroll">
+
+
       <DragDropContext onDragEnd={handleOnDragEnd}>
-      <Droppable droppableId="characters" direction="horizontal">
+
+      <Droppable droppableId="next" direction="horizontal">
+          {(provided) => (
+          <div className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
+              <Draggable key={testMovie.title} draggableId={testMovie.title} index={500}>
+              {(provided) => (
+              <div className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                <Card
+                  key={500}
+                  used= {true}
+                  title = {testMovie.title}
+                  poster = {testMovie.poster_path}
+                  date = {testMovie.release_date}
+                />
+              </div>
+               )}
+              </Draggable>
+              {provided.placeholder}
+            </div>
+          )}
+          </Droppable>
+
+          <div className="emptySpace">
+          </div>
+          <div className="boardGame scroll">
+
+      <Droppable droppableId="played" direction="horizontal">
           {(provided) => (
           <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
             {movieData.map((movieItem, index) => {
@@ -64,8 +94,9 @@ function App() {
             </ul>
           )}
           </Droppable>
+                </div>
         </DragDropContext>
-      </div>
+
     </div>
   );
 }
