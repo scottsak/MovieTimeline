@@ -1,15 +1,6 @@
 // import { getMouseEventOptions } from "@testing-library/user-event/dist/utils";
 import Card from './Card.jsx';
 import * as api from "../api.js";
-import React, {useState} from 'react';
-
-const [movieData, setMovie] = useState([]);
-let newMovie = {
-    poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-    title: "Fight Club",
-    release_date: "1999-11-11"
-}
-
 
 const movies = [
     {
@@ -50,5 +41,4 @@ function addMovie(movie) {
     }
 }
 
-
-export {addMovie, movies, newMovie, movieData, setMovie};
+export {addMovie, movies};
