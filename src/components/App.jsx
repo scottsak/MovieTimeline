@@ -57,7 +57,7 @@ function App() {
       <Droppable droppableId="next" direction="horizontal">
           {(provided) => (
           <div className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
-              <Draggable key={testMovie.title} draggableId={String(testMovie.id)} index={500}>
+              <Draggable key={String(testMovie.id)} draggableId={String(testMovie.id)} index={500}>
               {(provided) => (
               <div className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                 <Card
@@ -79,6 +79,8 @@ function App() {
           <div className="emptySpace">
           </div>
           <div className="boardGame scroll">
+
+
           <Droppable droppableId="played" direction="horizontal">
               {(provided) => (
               <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
