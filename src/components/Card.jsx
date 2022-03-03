@@ -5,8 +5,6 @@ import * as api from "../api.js";
 
 
 function Card(props){
-  console.log(props.date);
-  console.log(props.title);
 
 
   function CardUsed(props) {

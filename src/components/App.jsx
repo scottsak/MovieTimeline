@@ -29,16 +29,27 @@ function App() {
     let newMovie = card.movies[card.movies.length-1]
 
     console.log("Movie: "+newMovie)
+
     setMovie(prevMovies => {
       return [...prevMovies, newMovie];
     });
   }
 
   function handleOnDragEnd(result){
+    const { source, destination } = result;
+    console.log(testMovie);
+
     setMovie(prevMovies=> {
       return[...prevMovies, testMovie];
     })
     console.log(movieData);
+    if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
+      card.movies.push(testMovie);
+      let tempMovie = card.movies[card.movies.length-1]
+      setMovie(prevMovies => {
+        return [...prevMovies, tempMovie];
+      });
+    }
     const items = Array.from(movieData);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
@@ -86,7 +97,7 @@ function App() {
               <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
                 {movieData.map((movieItem, index) => {
                 return (
-                  <Draggable key={movieItem.title} draggableId={String(movieItem.id)} index={index}>
+                  <Draggable key={String(movieItem.id)} draggableId={String(movieItem.id)} index={index}>
                   {(provided) => (
                   <li className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                     <Card

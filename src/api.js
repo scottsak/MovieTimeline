@@ -17,12 +17,12 @@ function newMovie(){
     axios
     .get(baseURL+apiKEY+"&page="+getRandMovie())
     .then(res => {
-        console.log("status code")
-        console.log(`statusCode: ${res.status}`)
+        // console.log("status code")
+        // console.log(`statusCode: ${res.status}`)
         console.log("res")
         console.log(res)
-        console.log("posterpath")
-        console.log(`posterPath: ${res.data.poster_path}`)
+        // console.log("posterpath")
+        // console.log(`posterPath: ${res.data.poster_path}`)
         moviesFile.addMovie(res)
 
     })
