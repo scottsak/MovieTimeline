@@ -18,10 +18,11 @@ function Card(props){
   }
 
   console.log(props.id);
+  console.log(props.index)
 
 
   return(
-    <Draggable draggableId={props.id} index={props.index}>
+    <Draggable draggableId={String(props.id)} index={props.index}>
       {(provided, snapshot) => {
         return (
             <div className="card" 
@@ -29,7 +30,7 @@ function Card(props){
             snapshot={snapshot}
             {...provided.draggableProps}
             {...provided.dragHandleProps}>
-              
+
             <img className = "cardPoster" src={props.poster} alt={props.title}/>
             <CardUsed
               used = {props.used}

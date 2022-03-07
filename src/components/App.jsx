@@ -5,6 +5,7 @@ import * as api from '../api.js';
 // import PlayedCards from './PlayedCards'
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import PlayedCards from './PlayedCards.jsx';
+import NewCard from './NewCard.jsx';
 
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
     setMovie(prevMovies => {
       return [...prevMovies, newMovie];
     });
+    for (let i = 0; i < movieData.length; i++) {
+      console.log("This is the list of Movies: "+movieData[i].title);
+    }
   }
 
   function handleOnDragEnd(result){
@@ -69,28 +73,9 @@ function App() {
 
       <DragDropContext onDragEnd={handleOnDragEnd}>
 
-      <Droppable droppableId="next" direction="horizontal">
-          {(provided) => (
-          <div className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
-              <Draggable key={String(testMovie.id)} draggableId={String(testMovie.id)} index={500}>
-              {(provided) => (
-              <div className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                <Card
-                  key={500}
-                  id = {String(testMovie.id)}
-                  index={500}
-                  used= {true}
-                  title = {testMovie.title}
-                  poster = {testMovie.poster_path}
-                  date = {testMovie.release_date}
-                />
-              </div>
-               )}
-              </Draggable>
-              {provided.placeholder}
-            </div>
-          )}
-          </Droppable>
+      <NewCard 
+        movieItem={testMovie}
+      />
 
           <div className="emptySpace">
           </div>

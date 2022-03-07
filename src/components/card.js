@@ -18,7 +18,6 @@ function addMovie(movie) {
     let count=0;
     let mov = {};
     while(movieFound){
-      // console.log("going through");
       if(!movie.data.results[randNum].adult && movie.data.results[randNum].vote_count > 1500){
         mov = {
             poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
@@ -27,9 +26,6 @@ function addMovie(movie) {
             id: movie.data.results[randNum].id
         }
         movies.push(mov);
-        // console.log("what is going through")
-        // console.log(movies.length-1);
-        // console.log(movies);
         movieFound=false;
       }
       else if(count<10){
