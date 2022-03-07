@@ -18,7 +18,7 @@ function PlayedCards(props){
                 key={movieItem.id}
                 id = {movieItem.id}
                 index={index}
-                used= {true}
+                used={true}
                 title = {movieItem.title}
                 poster = {movieItem.poster_path}
                 date = {movieItem.release_date}

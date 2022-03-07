@@ -6,20 +6,16 @@ import * as api from '../api.js';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import PlayedCards from './PlayedCards.jsx';
 import NewCard from './NewCard.jsx';
+import EmptySpace from './EmptySpace.jsx';
 
 
 function App() {
   const [movieData, setMovie] = useState([]);
 
 
-  let newMovie = {
-      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-      title: "Fight Club",
-      release_date: "1999-11-11",
-      id: 3421331248
-  }
 
   const testMovie = {
+    key: 123432112530,
       poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
       title: "Runaways",
       release_date: "2021-11-11",
@@ -35,34 +31,42 @@ function App() {
     setMovie(prevMovies => {
       return [...prevMovies, newMovie];
     });
-    for (let i = 0; i < movieData.length; i++) {
-      console.log("This is the list of Movies: "+movieData[i].title);
-    }
+    setTimeout(function(){
+      console.log('after');
+      for (let i = 0; i < movieData.length; i++) {
+        console.log("This is the list of Movies: "+movieData[i].title);
+      }
+      console.log("how long the list is: "+movieData.length);
+  },1000);
   }
 
   function handleOnDragEnd(result){
     const { source, destination } = result;
+    console.log("destination: "+destination.droppableId+" source: "+ source.droppableId);
     console.log(testMovie);
-
-    setMovie(prevMovies=> {
-      return[...prevMovies, testMovie];
-    })
-    console.log(movieData);
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
       console.log("went through what i want it to")
       card.movies.push(testMovie);
       let tempMovie = card.movies[card.movies.length-1]
       console.log("temp movie: "+tempMovie.id)
       setMovie(prevMovies => {
-        return [...prevMovies, card.movies.length-1];
+        return [...prevMovies, testMovie];
       });
     }
-    console.log(movieData);
-    const items = Array.from(movieData);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
+    else if(result.source.droppableId ==='played' && result.destination.droppableId ==='played'){
+      const items = Array.from(movieData);
+      const [reorderedItem] = items.splice(result.source.index, 1);
+      items.splice(result.destination.index, 0, reorderedItem);
 
-    setMovie(items);
+      setMovie(items);
+    }
+    setTimeout(function(){
+    console.log("Movie Data prime: "+movieData);
+    for (let i = 0; i < movieData.length; i++) {
+      console.log("This is the list of Movies: "+movieData[i].title);
+    }
+  },1000);
+    
   }
 
   return (
@@ -76,12 +80,8 @@ function App() {
       <NewCard 
         movieItem={testMovie}
       />
-
-          <div className="emptySpace">
-          </div>
+          
           <div className="boardGame scroll">
-
-
           <PlayedCards 
             movieData =  {movieData}
           />

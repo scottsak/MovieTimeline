@@ -4,10 +4,11 @@ import * as api from "../api.js";
 
 const movies = [
     {
+      key: 123432154,
       poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
       title: "Fight Club",
       release_date: "1999-11-11",
-      id: 5349505
+      id: 53454332
     }
 
 ];
@@ -20,6 +21,7 @@ function addMovie(movie) {
     while(movieFound){
       if(!movie.data.results[randNum].adult && movie.data.results[randNum].vote_count > 1500){
         mov = {
+            key: movie.data.results[randNum].id,
             poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
             title: movie.data.results[randNum].title,
             release_date: movie.data.results[randNum].release_date,
