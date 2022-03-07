@@ -4,6 +4,7 @@ import * as card from './card.js';
 import * as api from '../api.js';
 // import PlayedCards from './PlayedCards'
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import PlayedCards from './PlayedCards.jsx';
 
 
 function App() {
@@ -44,12 +45,15 @@ function App() {
     })
     console.log(movieData);
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
+      console.log("went through what i want it to")
       card.movies.push(testMovie);
       let tempMovie = card.movies[card.movies.length-1]
+      console.log("temp movie: "+tempMovie.id)
       setMovie(prevMovies => {
-        return [...prevMovies, tempMovie];
+        return [...prevMovies, card.movies.length-1];
       });
     }
+    console.log(movieData);
     const items = Array.from(movieData);
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
@@ -73,8 +77,9 @@ function App() {
               <div className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                 <Card
                   key={500}
-                  id = {testMovie.id}
-                  used= {false}
+                  id = {String(testMovie.id)}
+                  index={500}
+                  used= {true}
                   title = {testMovie.title}
                   poster = {testMovie.poster_path}
                   date = {testMovie.release_date}
@@ -92,31 +97,9 @@ function App() {
           <div className="boardGame scroll">
 
 
-          <Droppable droppableId="played" direction="horizontal">
-              {(provided) => (
-              <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
-                {movieData.map((movieItem, index) => {
-                return (
-                  <Draggable key={String(movieItem.id)} draggableId={String(movieItem.id)} index={index}>
-                  {(provided) => (
-                  <li className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                    <Card
-                      key={index}
-                      id={movieItem.id}
-                      used= {true}
-                      title = {movieItem.title}
-                      poster = {movieItem.poster_path}
-                      date = {movieItem.release_date}
-                    />
-                  </li>
-                   )}
-                  </Draggable>
-                    );
-                  })}
-                  {provided.placeholder}
-                </ul>
-              )}
-              </Droppable>
+          <PlayedCards 
+            movieData =  {movieData}
+          />
           </div>
         </DragDropContext>
 

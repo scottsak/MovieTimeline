@@ -13,19 +13,17 @@ function PlayedCards(props){
         <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
           {props.movieData.map((movieItem, index) => {
           return (
-            <Draggable key={movieItem.title} draggableId={props.movieItem.title} index={index}>
-            {(provided) => (
-            <li className="timelineCard" ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+            <li className="timelineCard">
               <Card
-                key={index}
+                key={String(movieItem.id)}
+                id = {String(movieItem.id)}
+                index={index}
                 used= {true}
                 title = {movieItem.title}
                 poster = {movieItem.poster_path}
                 date = {movieItem.release_date}
               />
             </li>
-             )}
-            </Draggable>
               );
             })}
             {provided.placeholder}

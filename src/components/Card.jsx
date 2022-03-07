@@ -1,6 +1,6 @@
 import React from 'react';
 import './card.js';
-import Draggable from 'react-draggable';
+import {Draggable} from 'react-beautiful-dnd';
 import * as api from "../api.js";
 
 
@@ -21,14 +21,25 @@ function Card(props){
 
 
   return(
-      <div className="card">
-          <img className = "cardPoster" src={props.poster} alt={props.title}/>
-          <CardUsed
-            used = {props.used}
-            date = {props.date}
-          />
+    <Draggable draggableId={props.id} index={props.index}>
+      {(provided, snapshot) => {
+        return (
+            <div className="card" 
+            ref={provided.innerRef}
+            snapshot={snapshot}
+            {...provided.draggableProps}
+            {...provided.dragHandleProps}>
+              
+            <img className = "cardPoster" src={props.poster} alt={props.title}/>
+            <CardUsed
+              used = {props.used}
+              date = {props.date}
+            />
       </div>
-    )
+      );
+    }}
+  </Draggable>
+    );
 }
 
 export default Card;
