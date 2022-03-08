@@ -25,7 +25,7 @@ function Card(props){
     <Draggable draggableId={String(props.id)} index={props.index}>
       {(provided, snapshot) => {
         return (
-            <div className="card" 
+            <div className= {props.used ? "card": null} 
             ref={provided.innerRef}
             snapshot={snapshot}
             {...provided.draggableProps}
