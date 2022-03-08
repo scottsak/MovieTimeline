@@ -17,7 +17,7 @@ function Card(props){
     }
   }
 
-  console.log(props.id);
+  console.log(props.title);
   console.log(props.index)
 
 
