@@ -10,48 +10,40 @@ import EmptySpace from './EmptySpace.jsx';
 
 
 function App() {
-  const [movieData, setMovie] = useState([]);
 
-
-
-  const testMovie = {
-    key: 123432112530,
-      poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
-      title: "Runaways",
-      release_date: "2021-11-11",
-      id: 542349012
-  }
+  const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
+  const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
+  console.log("gameCard: "+gameCard.title);
+  console.log("movieData: "+movieData[movieData.length-1].title);
+  
 
   function changeMovie(){
+    console.log("Length of list: "+movieData.length);
     api.newMovie();
-    let newMovie = card.movies[card.movies.length-1]
+    let nextMovie = card.movieQueued[card.movieQueued.length-1]
+    console.log("Movie: "+nextMovie)
 
-    console.log("Movie: "+newMovie)
+    setGameCard(nextMovie);
 
-    setMovie(prevMovies => {
-      return [...prevMovies, newMovie];
-    });
-    setTimeout(function(){
-      console.log('after');
-      for (let i = 0; i < movieData.length; i++) {
-        console.log("This is the list of Movies: "+movieData[i].title);
-      }
-      console.log("how long the list is: "+movieData.length);
-  },1000);
   }
 
   function handleOnDragEnd(result){
     const { source, destination } = result;
     console.log("destination: "+destination.droppableId+" source: "+ source.droppableId);
-    console.log(testMovie);
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
       console.log("went through what i want it to")
-      card.movies.push(testMovie);
-      let tempMovie = card.movies[card.movies.length-1]
+      card.movies.push(gameCard);
+      let tempMovie = card.movies[card.movies.length-1];
       console.log("temp movie: "+tempMovie.id)
+      
       setMovie(prevMovies => {
-        return [...prevMovies, testMovie];
+        return [...prevMovies, tempMovie];
       });
+
+      changeMovie();
+      
+      
+      
     }
     else if(result.source.droppableId ==='played' && result.destination.droppableId ==='played'){
       const items = Array.from(movieData);
@@ -78,7 +70,7 @@ function App() {
       <DragDropContext onDragEnd={handleOnDragEnd}>
 
       <NewCard 
-        movieItem={testMovie}
+        movieItem={gameCard}
       />
           
           <div className="boardGame scroll">

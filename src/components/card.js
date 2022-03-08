@@ -13,6 +13,14 @@ const movies = [
 
 ];
 
+const movieQueued = [{
+  key: 123432112530,
+  poster_path: 'https://image.tmdb.org/t/p/original/6rVIjriV3Sv1B9INrzGRXW8Q7aY.jpg',
+  title: "The Magnificent Seven",
+  release_date: "1960-04-14",
+  id: 542349012
+}];
+
 function addMovie(movie) {
     let randNum = Math.floor(Math.random() * (19 - 1 + 0)) + 0;
     let movieFound = true;
@@ -27,7 +35,7 @@ function addMovie(movie) {
             release_date: movie.data.results[randNum].release_date,
             id: movie.data.results[randNum].id
         }
-        movies.push(mov);
+        movieQueued.push(mov);
         movieFound=false;
       }
       else if(count<10){
@@ -41,4 +49,4 @@ function addMovie(movie) {
     }
 }
 
-export {addMovie, movies};
+export {addMovie, movies, movieQueued};
