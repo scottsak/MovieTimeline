@@ -15,7 +15,7 @@ function App() {
   const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
   console.log("gameCard: "+gameCard.title);
   console.log("movieData: "+movieData[movieData.length-1].title);
-  
+
 
   function changeMovie(){
     console.log("Length of list: "+movieData.length);
@@ -35,20 +35,25 @@ function App() {
       card.movies.push(gameCard);
       let tempMovie = card.movies[card.movies.length-1];
       console.log("temp movie: "+tempMovie.id)
-      
+
       setMovie(prevMovies => {
         return [...prevMovies, tempMovie];
       });
 
       changeMovie();
-      
-      
-      
     }
     else if(result.source.droppableId ==='played' && result.destination.droppableId ==='played'){
       const items = Array.from(movieData);
       const [reorderedItem] = items.splice(result.source.index, 1);
       items.splice(result.destination.index, 0, reorderedItem);
+      console.log("Items: "+items);
+      items.sort(function(a, b){
+        let x = new Date(a.release_date);
+        let y = new Date(b.release_date);
+        console.log("x: "+x);
+        console.log("y: "+y);
+        return x - y;
+      });
 
       setMovie(items);
     }
@@ -58,7 +63,7 @@ function App() {
       console.log("This is the list of Movies: "+movieData[i].title);
     }
   },1000);
-    
+
   }
 
   return (
@@ -69,12 +74,12 @@ function App() {
 
       <DragDropContext onDragEnd={handleOnDragEnd}>
 
-      <NewCard 
+      <NewCard
         movieItem={gameCard}
       />
-          
+
           <div className="boardGame scroll">
-          <PlayedCards 
+          <PlayedCards
             movieData =  {movieData}
           />
           </div>
