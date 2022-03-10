@@ -10,7 +10,6 @@ function NewCard(props){
             {(provided) => (
                 <div className="timelineCard" {...provided.droppableProps} ref={provided.innerRef}>
                     <Card
-                    draggable= {true}
                         key={props.movieItem.id}
                         id = {props.movieItem.id}
                         index={1000}

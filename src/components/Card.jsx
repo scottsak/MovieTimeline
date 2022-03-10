@@ -22,7 +22,7 @@ function Card(props){
 
 
   return(
-    <Draggable draggableId={String(props.id)} index={props.index} isDragDisabled={!props.draggable}>
+    <Draggable draggableId={String(props.id)} index={props.index} isDragDisabled={props.used}>
       {(provided, snapshot) => {
         return (
             <div className= {props.used ? "card": null} 
