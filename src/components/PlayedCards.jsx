@@ -15,6 +15,7 @@ function PlayedCards(props){
           return (
             <li className="timelineCard">
               <Card
+                draggable={false}
                 key={movieItem.id}
                 id = {movieItem.id}
                 index={index}
