@@ -13,19 +13,16 @@ function Card(props){
       return <p className="cardInfo">{props.date}</p>;
     }
     else{
-      return <p></p>
+      return null;
     }
   }
-
-  console.log(props.title);
-  console.log(props.index)
 
 
   return(
     <Draggable draggableId={String(props.id)} index={props.index} isDragDisabled={props.used}>
       {(provided, snapshot) => {
         return (
-            <div className= {props.used ? "card": null} 
+            <div className= {props.used ? "card": null}
             ref={provided.innerRef}
             snapshot={snapshot}
             {...provided.draggableProps}
