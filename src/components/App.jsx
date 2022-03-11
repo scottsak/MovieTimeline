@@ -31,10 +31,6 @@ function App() {
       card.movies.push(gameCard);
       let tempMovie = card.movies[card.movies.length-1];
 
-      setMovie(prevMovies => {
-        return [...prevMovies, tempMovie];
-      });
-
     }
       const items = Array.from(movieData);
 
@@ -48,18 +44,8 @@ function App() {
         let y = new Date(b.release_date);
         return x - y;
       });
-
-
-      console.log("itemsX: "+items);
-
       setMovie(items);
       changeMovie();
-
-      // items.splice(result.destination.index, 0, reorderedItem);
-      // console.log("Order"+items);
-      //
-
-      // setMovie(items);
 
 
   }
