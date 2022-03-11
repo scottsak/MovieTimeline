@@ -43,6 +43,11 @@ function App() {
       }
       items.splice(result.destination.index, 0, gameCard);
 
+      items.sort(function(a, b){
+        let x = new Date(a.release_date);
+        let y = new Date(b.release_date);
+        return x - y;
+      });
 
 
       console.log("itemsX: "+items);
@@ -52,11 +57,7 @@ function App() {
 
       // items.splice(result.destination.index, 0, reorderedItem);
       // console.log("Order"+items);
-      // items.sort(function(a, b){
-      //   let x = new Date(a.release_date);
-      //   let y = new Date(b.release_date);
-      //   return x - y;
-      // });
+      //
 
       // setMovie(items);
 
