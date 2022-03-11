@@ -28,7 +28,7 @@ function App() {
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
       card.movies.push(gameCard);
       let tempMovie = card.movies[card.movies.length-1];
-    }
+
       const items = Array.from(movieData);
       items.splice(result.destination.index, 0, gameCard);
 
@@ -39,7 +39,7 @@ function App() {
       });
       setMovie(items);
       changeMovie();
-
+}
 
   }
 
