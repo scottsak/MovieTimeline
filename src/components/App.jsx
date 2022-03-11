@@ -18,8 +18,7 @@ function App() {
   function changeMovie(){
     console.log("Length of list: "+movieData.length);
     api.newMovie();
-    let nextMovie = card.movieQueued[card.movieQueued.length-1]
-
+    let nextMovie = card.movieQueued[card.movieQueued.length-1];
     setGameCard(nextMovie);
 
   }
@@ -27,16 +26,10 @@ function App() {
   function handleOnDragEnd(result){
     console.log("index of landing: "+result.destination.index);
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
-      console.log("went through what i want it to")
       card.movies.push(gameCard);
       let tempMovie = card.movies[card.movies.length-1];
-
     }
       const items = Array.from(movieData);
-
-      for(let i=0; i<items.length; i++){
-        console.log("itemsL: "+items[i].title);
-      }
       items.splice(result.destination.index, 0, gameCard);
 
       items.sort(function(a, b){
