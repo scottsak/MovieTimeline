@@ -6,21 +6,21 @@ import * as api from '../api.js';
 import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 import PlayedCards from './PlayedCards.jsx';
 import NewCard from './NewCard.jsx';
-import EmptySpace from './EmptySpace.jsx';
+import Lives from './Lives.jsx';
 
 
 function App() {
 
   const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
   const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
-
+  const [lives, setLives] = useState(3);
+  const [stillAlive, setStillAlive] = useState(true);
 
   function changeMovie(){
     console.log("Length of list: "+movieData.length);
     api.newMovie();
     let nextMovie = card.movieQueued[card.movieQueued.length-1];
     setGameCard(nextMovie);
-
   }
 
   function handleOnDragEnd(result){
@@ -47,20 +47,22 @@ function App() {
     <div>
       <h1 id="gameTitle">Movie Game</h1>
       <button onClick={changeMovie}>Click me!</button>
-
+      <Lives
+        heart = {3}
+      />
 
       <DragDropContext onDragEnd={handleOnDragEnd}>
 
-      <NewCard
-        movieItem={gameCard}
-      />
+        <NewCard
+          movieItem={gameCard}
+        />
+        <div className="boardGame scroll">
+        <PlayedCards
+          movieData =  {movieData}
+        />
+        </div>
 
-          <div className="boardGame scroll">
-          <PlayedCards
-            movieData =  {movieData}
-          />
-          </div>
-        </DragDropContext>
+      </DragDropContext>
 
     </div>
   );
