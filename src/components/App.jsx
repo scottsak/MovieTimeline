@@ -2,8 +2,7 @@ import React, {useState} from 'react';
 import Card from './Card.jsx';
 import * as card from './card.js';
 import * as api from '../api.js';
-// import PlayedCards from './PlayedCards'
-import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
+import {DragDropContext} from 'react-beautiful-dnd';
 import PlayedCards from './PlayedCards.jsx';
 import NewCard from './NewCard.jsx';
 import Lives from './Lives.jsx';
