@@ -47,7 +47,7 @@ function App() {
       <h1 id="gameTitle">Movie Game</h1>
       <button onClick={changeMovie}>Click me!</button>
       <Lives
-        heart = {3}
+        heart = {2}
       />
 
       <DragDropContext onDragEnd={handleOnDragEnd}>

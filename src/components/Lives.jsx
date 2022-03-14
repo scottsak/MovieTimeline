@@ -8,11 +8,27 @@ function Lives(props){
     )
   }
 
+  function amountOfLives(life){
+    if(life === 3){
+      return(
+        <><Heart /><Heart /><Heart /></>
+      )
+    }
+    else if(life === 2){
+      return(
+      <><Heart /><Heart /></>
+      )
+    }
+    else{
+      return(
+      <><Heart /></>
+      )
+    }
+  }
+
   return (
   <div>
-    <img src={require('../images/heart.png')} alt="heart" width="50"></img>
-    <img src={require('../images/heart.png')} alt="heart" width="50"></img>
-    <img src={require('../images/heart.png')} alt="heart" width="50"></img>
+   {amountOfLives(props.heart)}
   </div>
 )
 }
