@@ -19,9 +19,14 @@ function Lives(props){
       <><Heart /><Heart /></>
       )
     }
-    else{
+    else if(life===1){
       return(
       <><Heart /></>
+      )
+    }
+    else if(life===0){
+      return(
+        <h1>You Loser</h1>
       )
     }
   }

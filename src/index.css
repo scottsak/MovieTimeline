@@ -4,6 +4,11 @@ body {
   color: #EDF5E1;
   font-family: 'Anton', sans-serif;
   text-align: center;
+  overflow: hidden; /* Hide scrollbars */
+}
+
+ul{
+  padding-left: 0px;
 }
 
 #gameTitle{
@@ -24,10 +29,6 @@ body {
   width: 150px;
 }
 
-.emptySpace{
-  height: 10px;
-}
-
 
 .scroll {
   /* background-color: #333; */
@@ -42,6 +43,7 @@ body {
   text-align: center;
   padding: 14px;
   text-decoration: none;
+  padding-left: 0px;
 }
 
 /* .timelineCard:hover {
@@ -50,4 +52,17 @@ body {
 
 .cardPoster{
   width: 150px;
+}
+
+.nextCard{
+  height: 250px;
+}
+
+
+.boardGame{
+  height: 300px;
+  overflow-y: hidden;
+  position: relative;
+  bottom: 0px;
+
 }

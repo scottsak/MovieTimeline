@@ -6,12 +6,13 @@ import {DragDropContext} from 'react-beautiful-dnd';
 import PlayedCards from './PlayedCards.jsx';
 import NewCard from './NewCard.jsx';
 import Lives from './Lives.jsx';
+import LoseScreen from './LoseScreen.jsx';
 
 
 function App() {
 
   const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
-  const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
+  const [gameCard, setGameCard] = useState(card.startMovieQueued[0]);
   const [lives, setLives] = useState(3);
   const [stillAlive, setStillAlive] = useState(true);
 
@@ -26,6 +27,7 @@ function App() {
     console.log("index of landing: "+result.destination.index);
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
       card.movies.push(gameCard);
+      
       let tempMovie = card.movies[card.movies.length-1];
 
       const items = Array.from(movieData);
@@ -36,6 +38,10 @@ function App() {
         let y = new Date(b.release_date);
         return x - y;
       });
+      if(result.destination.index !== items.indexOf(tempMovie)){
+        console.log(false)
+        setLives(lives-1);
+      }
       setMovie(items);
       changeMovie();
 }
@@ -45,21 +51,30 @@ function App() {
   return (
     <div>
       <h1 id="gameTitle">Movie Game</h1>
-      <button onClick={changeMovie}>Click me!</button>
-      <Lives
-        heart = {2}
-      />
-
       <DragDropContext onDragEnd={handleOnDragEnd}>
+      {lives < 1 ? 
+        (
+          <div className="nextCard">
+          <LoseScreen 
+          
+          />
+          </div>
+        
+        )
+      :(
+      <><button onClick={changeMovie}>Click me!</button><Lives
+            heart={lives} />
+            
+              <div className="nextCard">
+                <NewCard
+                  movieItem={gameCard} />
+              </div></>
 
-        <NewCard
-          movieItem={gameCard}
-        />
-        <div className="boardGame scroll">
-        <PlayedCards
-          movieData =  {movieData}
-        />
-        </div>
+      )}
+      <div className="boardGame scroll">
+                <PlayedCards
+                  movieData={movieData} />
+              </div>
 
       </DragDropContext>
 

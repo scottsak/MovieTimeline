@@ -19,6 +19,7 @@ function Card(props){
 
 
   return(
+    
     <Draggable draggableId={String(props.id)} index={props.index} isDragDisabled={props.used}>
       {(provided, snapshot) => {
         return (
