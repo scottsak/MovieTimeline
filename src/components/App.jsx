@@ -55,9 +55,7 @@ function App() {
       {lives < 1 ? 
         (
           <div className="nextCard">
-          <LoseScreen 
-          
-          />
+          <LoseScreen/>
           </div>
         
         )
