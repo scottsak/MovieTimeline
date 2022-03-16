@@ -1,10 +1,12 @@
 import React from "react";
+import { CanvasRenderer } from "three";
 import * as app from './App.jsx';
 
 function LoseScreen(props){
 
     function playAgain(){
-        console.log("loser")
+        props.setLives(3);
+        
         
     }
 

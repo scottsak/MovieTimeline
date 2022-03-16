@@ -75,6 +75,7 @@ function App() {
           <div className="nextCard">
           <LoseScreen
             score = {score}
+            setLives = {setLives}
           />
           </div>
         
