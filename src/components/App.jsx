@@ -11,11 +11,12 @@ import LoseScreen from './LoseScreen.jsx';
 
 function App() {
 
-
+  api.newMovie();
   const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
-  const [gameCard, setGameCard] = useState([card.movieQueued[0]]);
+  const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
   const [lives, setLives] = useState(3);
   const [stillAlive, setStillAlive] = useState(true);
+  const [score, setScore] = useState(0)
 
   console.log("movieStuff: "+ JSON.stringify(gameCard[0]));
 
@@ -47,6 +48,13 @@ function App() {
       if(result.destination.index !== items.indexOf(tempMovie)){
         console.log(false)
         setLives(lives-1);
+        document.body.style.backgroundColor = "#9F2D4D";
+        setTimeout(() => {
+          document.body.style.backgroundColor = "#25274D";
+        }, 200);
+      }
+      else{
+        setScore(score+1);
       }
       setMovie(items);
       changeMovie();
@@ -65,12 +73,16 @@ function App() {
       {lives < 1 ? 
         (
           <div className="nextCard">
-          <LoseScreen/>
+          <LoseScreen
+            score = {score}
+          />
           </div>
         
         )
       :(
-      <><button onClick={changeMovie}>Click me!</button><Lives
+      <>
+      {/* <button onClick={changeMovie}>Click me!</button> */}
+      <Lives
             heart={lives} />
             
               <div className="nextCard">

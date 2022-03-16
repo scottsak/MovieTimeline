@@ -11,7 +11,7 @@ function LoseScreen(props){
     return(
         <div>
             <button onClick={playAgain}>Play Again</button>
-            <h1>You Lose</h1>
+            <h1>You Lose! Your score was {props.score}</h1>
         </div>
     )
 }
