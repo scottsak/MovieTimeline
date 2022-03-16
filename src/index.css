@@ -22,6 +22,7 @@ ul{
   /* height: 270px; */
   background-color: #464866;
   text-align: center;
+  border-radius: 10px;
 }
 
 .cardInfo{
@@ -52,6 +53,7 @@ ul{
 
 .cardPoster{
   width: 150px;
+  border-radius: 5px;
 }
 
 .nextCard{
