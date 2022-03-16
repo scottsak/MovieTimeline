@@ -11,10 +11,16 @@ import LoseScreen from './LoseScreen.jsx';
 
 function App() {
 
+
   const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
-  const [gameCard, setGameCard] = useState(card.startMovieQueued[0]);
+  const [gameCard, setGameCard] = useState([card.movieQueued[0]]);
   const [lives, setLives] = useState(3);
   const [stillAlive, setStillAlive] = useState(true);
+
+  console.log("movieStuff: "+ JSON.stringify(gameCard[0]));
+
+ 
+  
 
   function changeMovie(){
     console.log("Length of list: "+movieData.length);
@@ -44,6 +50,10 @@ function App() {
       }
       setMovie(items);
       changeMovie();
+      console.log("keys: ")
+      for(var i=0; i<movieData; i++){
+        console.log(movieData[i].key);
+      }
 }
 
   }
