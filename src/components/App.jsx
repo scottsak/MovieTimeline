@@ -78,6 +78,7 @@ function App() {
             setLives = {setLives}
             setMovie = {setMovie}
             setGameCard = {setGameCard}
+            setScore = {setScore}
           />
           </div>
         
