@@ -76,6 +76,8 @@ function App() {
           <LoseScreen
             score = {score}
             setLives = {setLives}
+            setMovie = {setMovie}
+            setGameCard = {setGameCard}
           />
           </div>
         

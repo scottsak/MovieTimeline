@@ -12,21 +12,16 @@ const movies = [
     }
 
 ];
-const startMovieQueued = [{
-  key: 123432112530,
-  poster_path: 'https://image.tmdb.org/t/p/original/6rVIjriV3Sv1B9INrzGRXW8Q7aY.jpg',
-  title: "The Magnificent Seven",
-  release_date: "1960-04-14",
-  id: 542349012
-}];
 
-const movieQueued = [{
-  key: 123432112530,
-  poster_path: 'https://image.tmdb.org/t/p/original/6rVIjriV3Sv1B9INrzGRXW8Q7aY.jpg',
-  title: "The Magnificent Seven",
-  release_date: "1960-04-14",
-  id: 542349012
-}];
+const movieQueued = [
+    {
+    key: 123432112530,
+    poster_path: 'https://image.tmdb.org/t/p/original/6rVIjriV3Sv1B9INrzGRXW8Q7aY.jpg',
+    title: "The Magnificent Seven",
+    release_date: "1960-04-14",
+    id: 542349012
+  }
+];
 
 function addMovie(movie) {
     let randNum = Math.floor(Math.random() * (19 - 1 + 0)) + 0;
@@ -56,4 +51,4 @@ function addMovie(movie) {
     }
 }
 
-export {addMovie, movies, movieQueued, startMovieQueued};
+export {addMovie, movies, movieQueued};
