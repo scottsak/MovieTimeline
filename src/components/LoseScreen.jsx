@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import { CanvasRenderer } from "three";
 import * as app from './App.jsx';
 import * as card from './card.js';
 
