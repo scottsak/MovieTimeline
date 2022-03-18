@@ -15,13 +15,9 @@ function App() {
   const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
   const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
   const [lives, setLives] = useState(3);
-  const [stillAlive, setStillAlive] = useState(true);
   const [score, setScore] = useState(0)
 
   console.log("movieStuff: "+ JSON.stringify(gameCard[0]));
-
- 
-  
 
   function changeMovie(){
     console.log("Length of list: "+movieData.length);
