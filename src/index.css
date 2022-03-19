@@ -40,7 +40,7 @@ ul{
 .timelineCard {
   /* height: 400px; */
   display: inline-block;
-  color: white;
+  /* color: white; */
   text-align: center;
   padding: 14px;
   text-decoration: none;
@@ -85,4 +85,12 @@ ul{
     border-radius: 5px;
     width: 150px;
     height: 40px;
+}
+
+.cardRight{
+  background-color: purple !important;
+}
+
+.cardWrong{
+  background-color: red !important;
 }

@@ -17,12 +17,12 @@ function newMovie(){
     axios
     .get(baseURL+apiKEY+"&page="+getRandMovie())
     .then(res => {
-        console.log("res")
-        console.log(res)
+        // console.log("res")
+        // console.log(res)
         moviesFile.addMovie(res)
     })
     .catch(error => {
-        console.error(error)
+        // console.error(error)
         newMovie();
     })
 

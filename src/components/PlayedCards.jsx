@@ -22,6 +22,7 @@ function PlayedCards(props){
                 title = {movieItem.title}
                 poster = {movieItem.poster_path}
                 date = {movieItem.release_date}
+                right = {movieItem.correct}
               />
             </div>
               );

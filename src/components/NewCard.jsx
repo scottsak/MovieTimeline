@@ -17,6 +17,7 @@ function NewCard(props){
                         title = {props.movieItem.title}
                         poster = {props.movieItem.poster_path}
                         date = {props.movieItem.release_date}
+                        correct = {null}
                     />
                     {provided.placeholder}
                 </div>

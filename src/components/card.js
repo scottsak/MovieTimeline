@@ -8,7 +8,8 @@ const movies = [
       poster_path: 'https://image.tmdb.org/t/p/original/pB8BM7pdSp6B6Ih7QZ4DrQ3PmJK.jpg',
       title: "Fight Club",
       release_date: "1999-11-11",
-      id: 53454332
+      id: 53454332, 
+      correct: true
     }
 
 ];
@@ -19,7 +20,8 @@ const movieQueued = [
     poster_path: 'https://image.tmdb.org/t/p/original/6rVIjriV3Sv1B9INrzGRXW8Q7aY.jpg',
     title: "The Magnificent Seven",
     release_date: "1960-04-14",
-    id: 542349012
+    id: 542349012,
+    correct: null
   }
 ];
 
@@ -35,7 +37,8 @@ function addMovie(movie) {
             poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
             title: movie.data.results[randNum].title,
             release_date: movie.data.results[randNum].release_date,
-            id: movie.data.results[randNum].id
+            id: movie.data.results[randNum].id,
+            correct: null
         }
         movieQueued.push(mov);
         movieFound=false;
