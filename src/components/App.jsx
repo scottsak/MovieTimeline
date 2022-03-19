@@ -44,6 +44,7 @@ function App() {
       if(result.destination.index !== items.indexOf(tempMovie)){
         console.log(false)
         setLives(lives-1);
+        
         document.body.style.backgroundColor = "#9F2D4D";
         setTimeout(() => {
           document.body.style.backgroundColor = "#25274D";

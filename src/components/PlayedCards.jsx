@@ -10,10 +10,10 @@ function PlayedCards(props){
     <div>
     <Droppable droppableId="played" direction="horizontal">
         {(provided) => (
-        <ul className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
+        <div className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
           {props.movieData.map((movieItem, index) => {
           return (
-            <li className="timelineCard">
+            <div className="timelineCard">
               <Card
                 key={movieItem.id}
                 id = {movieItem.id}
@@ -23,11 +23,11 @@ function PlayedCards(props){
                 poster = {movieItem.poster_path}
                 date = {movieItem.release_date}
               />
-            </li>
+            </div>
               );
             })}
             {provided.placeholder}
-          </ul>
+          </div>
         )}
         </Droppable>
         </div>
