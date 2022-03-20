@@ -13,10 +13,10 @@ function App() {
 
   api.newMovie();
   let startMovie;
-  if(localStorage.getItem("lastItem") === 'undefined'){
+  if(localStorage.getItem("lastItem") === 'undefined' || localStorage.getItem("lastItem") === null){
     startMovie = [card.movies[card.movies.length-1]]
   }
-  else if(localStorage.getItem("lastItem") != null){
+  else{
     startMovie = [JSON.parse(localStorage.getItem("lastItem"))]
     console.log(startMovie)
     console.log(startMovie[0].correct)
@@ -79,7 +79,7 @@ function App() {
 
   return (
     <div>
-      <h1 id="gameTitle">Movie Game</h1>
+      <h1 id="gameTitle">Movie Time</h1>
       <DragDropContext onDragEnd={handleOnDragEnd}>
       {lives < 1 ? 
         (
