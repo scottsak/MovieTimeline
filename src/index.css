@@ -18,7 +18,7 @@ ul{
 
 
 .card{
-  width: 150px;
+  width: 170px;
   /* height: 270px; */
   background-color: #464866;
   text-align: center;
@@ -58,8 +58,11 @@ ul{
 } */
 
 .cardPoster{
+  padding-top: 10px;
   width: 150px;
   border-radius: 5px;
+  display:block;
+  margin:auto;
 }
 
 .nextCard{
