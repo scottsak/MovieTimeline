@@ -16,7 +16,9 @@ function LoseScreen(props){
 
     function playAgain(){
         props.setLives(3);
+        card.movies[card.movies.length-1].correct=true;
         props.setMovie([card.movies[card.movies.length-1]]);
+
         props.setScore(0);
     }
 
