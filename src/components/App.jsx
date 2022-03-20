@@ -15,9 +15,7 @@ function App() {
   const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
   const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
   const [lives, setLives] = useState(3);
-  const [score, setScore] = useState(0)
-
-  console.log("movieStuff: "+ JSON.stringify(gameCard[0]));
+  const [score, setScore] = useState(0);
 
   function changeMovie(){
     console.log("Length of list: "+movieData.length);
@@ -27,6 +25,7 @@ function App() {
   }
 
   function handleOnDragEnd(result){
+    let correct = true;
     console.log("index of landing: "+result.destination.index);
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
       card.movies.push(gameCard);
@@ -44,6 +43,8 @@ function App() {
       if(result.destination.index !== items.indexOf(tempMovie)){
         console.log(false)
         setLives(lives-1);
+        items[items.indexOf(tempMovie)].correct = false;
+
         
         document.body.style.backgroundColor = "#9F2D4D";
         setTimeout(() => {
@@ -52,13 +53,14 @@ function App() {
       }
       else{
         setScore(score+1);
+        items[items.indexOf(tempMovie)].correct = true;
       }
       setMovie(items);
-      changeMovie();
-      console.log("keys: ")
-      for(var i=0; i<movieData; i++){
-        console.log(movieData[i].key);
+      for(let i=0; i<movieData.length; i++){
+        console.log(JSON.stringify(movieData[i]));
       }
+      // console.log(movieData[movieData.indexOf(tempMovie)].correct)
+      changeMovie();
 }
 
   }

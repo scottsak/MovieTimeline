@@ -47,6 +47,12 @@ ul{
   padding-left: 0px;
 }
 
+.timelineCards{
+  width: 100%;
+  margin: 0 auto;
+
+}
+
 /* .timelineCard:hover {
   background-color: #777;
 } */
@@ -88,9 +94,9 @@ ul{
 }
 
 .cardRight{
-  background-color: purple !important;
+  background-color: #464866 !important;
 }
 
 .cardWrong{
-  background-color: red !important;
+  background-color: #9F2D4D !important;
 }
