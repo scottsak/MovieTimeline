@@ -5,11 +5,14 @@ import * as card from './card.js';
 
 function LoseScreen(props){
     const [highScore, setHighScore] = useState(localStorage.getItem("highscore") ?? "0");
-
+    let movieToBeSaved = JSON.stringify(card.movies[card.movies.length-1]);
     function checkHighScore(score) {
+        localStorage.setItem("lastItem", movieToBeSaved);
+        console.log(JSON.parse(localStorage.getItem("lastItem")))
         if(highScore < score){
             setHighScore(score);
             localStorage.setItem("highscore", score);
+
         }
         return highScore;
     }

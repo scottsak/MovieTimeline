@@ -12,7 +12,19 @@ import LoseScreen from './LoseScreen.jsx';
 function App() {
 
   api.newMovie();
-  const [movieData, setMovie] = useState([card.movies[card.movies.length-1]]);
+  let startMovie;
+  if(localStorage.getItem("lastItem") === 'undefined'){
+    startMovie = [card.movies[card.movies.length-1]]
+  }
+  else if(localStorage.getItem("lastItem") != null){
+    startMovie = [JSON.parse(localStorage.getItem("lastItem"))]
+    console.log(startMovie)
+    console.log(startMovie[0].correct)
+    startMovie[0].correct = true;
+  }
+
+  
+  const [movieData, setMovie] = useState(startMovie);
   const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
   const [lives, setLives] = useState(3);
   const [score, setScore] = useState(0);
@@ -56,9 +68,9 @@ function App() {
         items[items.indexOf(tempMovie)].correct = true;
       }
       setMovie(items);
-      for(let i=0; i<movieData.length; i++){
-        console.log(JSON.stringify(movieData[i]));
-      }
+      // for(let i=0; i<movieData.length; i++){
+      //   console.log(JSON.stringify(movieData[i]));
+      // }
       // console.log(movieData[movieData.indexOf(tempMovie)].correct)
       changeMovie();
 }
