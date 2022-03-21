@@ -27,7 +27,8 @@ ul{
 
 .cardInfo{
   margin-top: 10px;
-  width: 150px;
+  width: 100%;
+
 }
 
 
@@ -94,6 +95,7 @@ ul{
     border-radius: 5px;
     width: 150px;
     height: 40px;
+    /* border: 2px solid #5CDB95; */
 }
 
 .cardRight{
@@ -102,4 +104,8 @@ ul{
 
 .cardWrong{
   background-color: #9F2D4D !important;
+}
+
+.loseTable {
+  width: 100%;
 }

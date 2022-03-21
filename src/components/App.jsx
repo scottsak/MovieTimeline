@@ -79,7 +79,7 @@ function App() {
 
   return (
     <div>
-      <h1 id="gameTitle">Movie Time</h1>
+      <h1 id="gameTitle">Screen Time</h1>
       <DragDropContext onDragEnd={handleOnDragEnd}>
       {lives < 1 ? 
         (

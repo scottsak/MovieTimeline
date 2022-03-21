@@ -6,13 +6,18 @@ import * as api from "../api.js";
 
 function Card(props){
 
+  const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
 
 
 
   function CardUsed(props) {
     const used = props.used;
+    let d = new Date(props.date);
+    let month = d.getMonth();
+    let day = d.getDate();
+    let year = d.getFullYear();
     if (used) {
-      return <p className="cardInfo">{props.date}</p>;
+      return <p className="cardInfo">{months[month] +" "+day+' '+year}</p>;
     }
     else{
       return null;

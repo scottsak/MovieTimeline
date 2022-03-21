@@ -4,6 +4,10 @@ import * as card from './card.js';
 
 
 function LoseScreen(props){
+
+    
+
+
     const [highScore, setHighScore] = useState(localStorage.getItem("highscore") ?? "0");
     let movieToBeSaved = JSON.stringify(card.movies[card.movies.length-1]);
     function checkHighScore(score) {
@@ -30,8 +34,16 @@ function LoseScreen(props){
 
     return(
         <div className="lostModal">
-            <h1>You Lose! Your score was {props.score}</h1>
-            <h2>Your HighScore is {checkHighScore(props.score)}</h2>
+            <table className='loseTable'>
+                <tr className='loseRow1'>
+                    <th><h1>Your Score</h1></th>
+                    <th><h1>High Score</h1></th>
+                </tr>
+                <tr className='loseRow2'>
+                    <td><h2>{props.score}</h2></td>
+                    <td><h2>{checkHighScore(props.score)}</h2></td>
+                </tr>
+            </table>
             <button className = "loseButton"onClick={playAgain}>Play Again</button>
             
         </div>
