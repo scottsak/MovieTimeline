@@ -7,6 +7,7 @@ import PlayedCards from './PlayedCards.jsx';
 import NewCard from './NewCard.jsx';
 import Lives from './Lives.jsx';
 import LoseScreen from './LoseScreen.jsx';
+import Header from './Header.jsx'
 
 
 function App() {
@@ -93,7 +94,7 @@ function App() {
 
   return (
     <div>
-      <h1 id="gameTitle">Screen Time</h1>
+      <Header />
       <DragDropContext onDragEnd={handleOnDragEnd}>
       {lives < 1 ? 
         (
