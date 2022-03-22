@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import * as app from './App.jsx';
 import * as card from './card.js';
+import * as api from '../api';
 
 
 function LoseScreen(props){
@@ -13,6 +14,7 @@ function LoseScreen(props){
     function checkHighScore(score) {
         localStorage.setItem("lastItem", movieToBeSaved);
         console.log(JSON.parse(localStorage.getItem("lastItem")))
+
         if(highScore < score){
             setHighScore(score);
             localStorage.setItem("highscore", score);

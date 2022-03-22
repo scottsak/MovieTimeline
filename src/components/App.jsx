@@ -22,10 +22,18 @@ function App() {
     console.log(startMovie[0].correct)
     startMovie[0].correct = true;
   }
+  let startGameCard;
+  if(localStorage.getItem("lastGameCard") === 'undefined' || localStorage.getItem("lastGameCard") === null){
+    startGameCard = card.movieQueued[card.movieQueued.length-1]
+  }
+  else{
+    startGameCard = JSON.parse(localStorage.getItem("lastGameCard"))
+    console.log(startGameCard)
+  }
 
   
   const [movieData, setMovie] = useState(startMovie);
-  const [gameCard, setGameCard] = useState(card.movieQueued[card.movieQueued.length-1]);
+  const [gameCard, setGameCard] = useState(startGameCard);
   const [lives, setLives] = useState(3);
   const [score, setScore] = useState(0);
 
@@ -68,11 +76,17 @@ function App() {
         items[items.indexOf(tempMovie)].correct = true;
       }
       setMovie(items);
+      
       // for(let i=0; i<movieData.length; i++){
       //   console.log(JSON.stringify(movieData[i]));
       // }
       // console.log(movieData[movieData.indexOf(tempMovie)].correct)
       changeMovie();
+      let lastGameCard = JSON.stringify(gameCard);
+      if(lives > 1 ){
+        localStorage.setItem("lastGameCard", lastGameCard);
+      }
+      
 }
 
   }
