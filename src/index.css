@@ -2,7 +2,7 @@ body {
   margin: 0;
   background-color: #25274D;
   color: #EDF5E1;
-  font-family: 'Anton', sans-serif;
+  font-family: 'League Spartan', sans-serif;
   text-align: center;
   overflow: hidden; /* Hide scrollbars */
 }
@@ -14,6 +14,7 @@ ul{
 #gameTitle{
   padding: 40px 0px;
   font-size: 60px;
+  font-family: 'Bungee Shade', cursive;
 }
 
 
@@ -46,6 +47,7 @@ ul{
   padding: 14px;
   text-decoration: none;
   padding-left: 0px;
+  font-family: 'Sarabun', sans-serif;
 }
 
 .timelineCards{
@@ -84,7 +86,7 @@ ul{
   height: 200px;
   margin: auto;
   width: 50%;
-  border: 3px solid #5CDB95;
+  border: 3px solid #EDF5E1;
   padding: 10px;
   border-radius: 20px;
 }
@@ -95,6 +97,7 @@ ul{
     border-radius: 5px;
     width: 150px;
     height: 40px;
+    margin: 10px;
     /* border: 2px solid #5CDB95; */
 }
 
@@ -116,5 +119,112 @@ ul{
   top: 10px;
   width: 30px;
   height: 30px;
-  border: 3px solid blue;
+  border: 3px solid #3c4b59;
+  background-color: #464866;
+}
+
+.pause:hover{
+  background-color: #EDF5E1;
+}
+
+.modal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: all 0.3s ease-in-out;
+  pointer-events: none;
+}
+
+.modal.enter-done {
+  opacity: 1;
+  pointer-events: visible;
+}
+
+.modal.exit {
+  opacity: 0;
+}
+
+.modal-content {
+  width: 500px;
+  background-color: #3c4b59;
+  transition: all 0.3s ease-in-out;
+  transform: translateY(-200px);
+}
+
+.modal.enter-done .modal-content {
+  transform: translateY(0);
+}
+
+.modal.exit .modal-content {
+  transform: translateY(-200px);
+}
+
+.modal-header,
+.modal-footer {
+  padding: 10px;
+}
+
+.modal-title {
+  margin: 0;
+}
+
+.modal-body {
+  padding: 10px;
+  /* border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee; */
+}
+
+.button{
+  border-radius: 50%;
+  border: none;
+  background-color: inherit;
+  color: #EDF5E1
+
+}
+
+.copyright{
+  /* font-family: ; */
+  font-size: 12px;
+  margin-bottom: 0;
+}
+
+.modal-footer{
+  display: block;
+}
+
+.owner{
+  /* font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
+  text-align: center;
+  font-size: 12px;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .pause{
+    top: 10px;
+    left: 10px;
+    font-size: 15px;
+  }
+  h1{
+    font-size: 20px;
+  }
+
+  .lostModal{
+    width: 90%;
+  }
+
+  .loseButton{
+    width: 140px;
+  }
 }

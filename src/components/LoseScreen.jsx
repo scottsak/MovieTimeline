@@ -11,6 +11,7 @@ function LoseScreen(props){
 
     const [highScore, setHighScore] = useState(localStorage.getItem("highscore") ?? "0");
     let movieToBeSaved = JSON.stringify(card.movies[card.movies.length-1]);
+
     function checkHighScore(score) {
         localStorage.setItem("lastItem", movieToBeSaved);
         console.log(JSON.parse(localStorage.getItem("lastItem")))
@@ -31,6 +32,15 @@ function LoseScreen(props){
         props.setScore(0);
     }
 
+    function shareScore(score){
+        let copiedText = ("⭐ "+score +" ⭐")
+
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(copiedText);
+        
+        console.log(copiedText)
+    }
+
     
 
 
@@ -46,7 +56,8 @@ function LoseScreen(props){
                     <td><h2>{checkHighScore(props.score)}</h2></td>
                 </tr>
             </table>
-            <button className = "loseButton"onClick={playAgain}>Play Again</button>
+            <button className = "loseButton" onClick={playAgain}>Play Again</button>
+            <button className = "loseButton" onClick={shareScore(props.score)}>Share Score</button>
             
         </div>
     )

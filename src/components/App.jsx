@@ -38,6 +38,8 @@ function App() {
   const [lives, setLives] = useState(3);
   const [score, setScore] = useState(0);
 
+ 
+
   function changeMovie(){
     console.log("Length of list: "+movieData.length);
     api.newMovie();
