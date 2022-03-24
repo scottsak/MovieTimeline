@@ -19,8 +19,6 @@ function App() {
   }
   else{
     startMovie = [JSON.parse(localStorage.getItem("lastItem"))]
-    console.log(startMovie)
-    console.log(startMovie[0].correct)
     startMovie[0].correct = true;
   }
   let startGameCard;
@@ -29,7 +27,6 @@ function App() {
   }
   else{
     startGameCard = JSON.parse(localStorage.getItem("lastGameCard"))
-    console.log(startGameCard)
   }
 
   
@@ -41,7 +38,6 @@ function App() {
  
 
   function changeMovie(){
-    console.log("Length of list: "+movieData.length);
     api.newMovie();
     let nextMovie = card.movieQueued[card.movieQueued.length-1];
     setGameCard(nextMovie);
@@ -49,7 +45,6 @@ function App() {
 
   function handleOnDragEnd(result){
     let correct = true;
-    console.log("index of landing: "+result.destination.index);
     if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
       card.movies.push(gameCard);
       
@@ -64,7 +59,6 @@ function App() {
         return x - y;
       });
       if(result.destination.index !== items.indexOf(tempMovie)){
-        console.log(false)
         setLives(lives-1);
         items[items.indexOf(tempMovie)].correct = false;
 
@@ -79,11 +73,6 @@ function App() {
         items[items.indexOf(tempMovie)].correct = true;
       }
       setMovie(items);
-      
-      // for(let i=0; i<movieData.length; i++){
-      //   console.log(JSON.stringify(movieData[i]));
-      // }
-      // console.log(movieData[movieData.indexOf(tempMovie)].correct)
       changeMovie();
       let lastGameCard = JSON.stringify(gameCard);
       if(lives > 1 ){
@@ -113,7 +102,6 @@ function App() {
         )
       :(
       <>
-      {/* <button onClick={changeMovie}>Click me!</button> */}
       <Lives
             heart={lives} />
             

@@ -14,7 +14,6 @@ function LoseScreen(props){
 
     function checkHighScore(score) {
         localStorage.setItem("lastItem", movieToBeSaved);
-        console.log(JSON.parse(localStorage.getItem("lastItem")))
 
         if(highScore < score){
             setHighScore(score);
@@ -32,13 +31,11 @@ function LoseScreen(props){
         props.setScore(0);
     }
 
-    function shareScore(score){
-        let copiedText = ("⭐ "+score +" ⭐")
-
-        /* Copy the text inside the text field */
-        navigator.clipboard.writeText(copiedText);
-        
-        console.log(copiedText)
+    function shareScore(score, pressed){
+        let copiedText = ("⭐ "+score+" ⭐")
+        if(pressed){
+            navigator.clipboard.writeText(copiedText);
+        }
     }
 
     
@@ -47,17 +44,25 @@ function LoseScreen(props){
     return(
         <div className="lostModal">
             <table className='loseTable'>
+                <tbody>
                 <tr className='loseRow1'>
                     <th><h1>Your Score</h1></th>
                     <th><h1>High Score</h1></th>
+                    
+                    
                 </tr>
                 <tr className='loseRow2'>
                     <td><h2>{props.score}</h2></td>
                     <td><h2>{checkHighScore(props.score)}</h2></td>
                 </tr>
+                <tr className='loseRow2'>
+                    <th><button id='playAgain' className = "loseButton" onClick={playAgain}>Play Again</button></th>
+                    <td><button id='shareScore' className = "loseButton" onClick={shareScore(props.score, true)}>Share Score</button></td>
+                </tr>
+                </tbody>
             </table>
-            <button className = "loseButton" onClick={playAgain}>Play Again</button>
-            <button className = "loseButton" onClick={shareScore(props.score)}>Share Score</button>
+            
+            
             
         </div>
     )
