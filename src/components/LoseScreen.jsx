@@ -31,11 +31,10 @@ function LoseScreen(props){
         props.setScore(0);
     }
 
-    function shareScore(score, pressed){
-        let copiedText = ("⭐ "+score+" ⭐")
-        if(pressed){
-            navigator.clipboard.writeText(copiedText);
-        }
+    function shareScore(){
+        let copiedText = ("ScreenTime: ⭐"+props.score+" ⭐")
+        navigator.clipboard.writeText(copiedText);
+        
     }
 
     
@@ -56,8 +55,8 @@ function LoseScreen(props){
                     <td><h2>{checkHighScore(props.score)}</h2></td>
                 </tr>
                 <tr className='loseRow2'>
-                    <th><button id='playAgain' className = "loseButton" onClick={playAgain}>Play Again</button></th>
-                    <td><button id='shareScore' className = "loseButton" onClick={shareScore(props.score, true)}>Share Score</button></td>
+                    <td><button id='playAgain' className = "loseButton" onClick={playAgain}>Play Again</button></td>
+                    <td><button id='shareScore' className = "loseButton" onClick={shareScore}>Share Score</button></td>
                 </tr>
                 </tbody>
             </table>
