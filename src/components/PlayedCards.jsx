@@ -7,7 +7,6 @@ import {DragDropContext, Droppable, Draggable} from 'react-beautiful-dnd';
 function PlayedCards(props){
 
   return (
-    <div>
     <Droppable droppableId="played" direction="horizontal">
         {(provided) => (
         <div className="timelineCards" {...provided.droppableProps} ref={provided.innerRef}>
@@ -31,7 +30,6 @@ function PlayedCards(props){
           </div>
         )}
         </Droppable>
-        </div>
     )
 }
 

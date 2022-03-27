@@ -43,17 +43,20 @@ ul{
   /* height: 400px; */
   display: inline-block;
   /* color: white; */
-  text-align: center;
+  text-align: left;
   padding: 14px;
   text-decoration: none;
   padding-left: 0px;
   font-family: 'Sarabun', sans-serif;
+  
 }
 
 .timelineCards{
   width: 100%;
   margin: 0 auto;
-
+  overflow: auto;
+  height: 300px;
+  overflow-y: hidden;
 }
 
 /* .timelineCard:hover {
