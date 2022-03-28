@@ -38,7 +38,7 @@ const PauseScreen = props => {
             <p>You get 3 lives and every wrongly placed card loses one life.</p>
             <p> <br></br></p>
             <p className="copyright">Used TMDB for movie content</p>
-            <img width='100px' src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg' alt="the movie database"></img>
+            <a href="https://www.themoviedb.org/?language=en-US"><img width='100px' src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg' alt="the movie database"></img></a>
           </div>
           <div className="modal-footer">
             <p className="owner">Created and developed by Scott Sakurai</p>
