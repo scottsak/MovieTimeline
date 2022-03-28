@@ -5,7 +5,6 @@ import Card from './Card.jsx';
 
 function NewCard(props){
     return(
-        <div className="timelineCards">
         <Droppable droppableId="next" direction="horizontal">
             {(provided) => (
                 <div className="timelineCard" {...provided.droppableProps} ref={provided.innerRef}>
@@ -23,7 +22,6 @@ function NewCard(props){
                 </div>
             )}
         </Droppable>
-        </div>
     );
 }
 

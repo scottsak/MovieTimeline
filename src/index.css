@@ -35,8 +35,8 @@ ul{
 
 .scroll {
   /* background-color: #333; */
-  overflow: auto;
   white-space: nowrap;
+  overflow: hidden;
 }
 
 .timelineCard {
@@ -44,7 +44,7 @@ ul{
   display: inline-block;
   /* color: white; */
   text-align: left;
-  padding: 14px;
+  padding: 0px 14px;
   text-decoration: none;
   padding-left: 0px;
   font-family: 'Sarabun', sans-serif;
@@ -55,7 +55,8 @@ ul{
   width: 100%;
   margin: 0 auto;
   overflow: auto;
-  height: 300px;
+  height: 300px; 
+  overflow: auto;
   overflow-y: hidden;
 }
 
@@ -78,7 +79,7 @@ ul{
 
 .boardGame{
   height: 300px;
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
   /* position: relative; */
   bottom: 0px;
 

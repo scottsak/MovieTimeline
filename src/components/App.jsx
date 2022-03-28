@@ -45,42 +45,44 @@ function App() {
 
   function handleOnDragEnd(result){
     let correct = true;
-    if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
-      card.movies.push(gameCard);
-      
-      let tempMovie = card.movies[card.movies.length-1];
-
-      const items = Array.from(movieData);
-      items.splice(result.destination.index, 0, gameCard);
-
-      items.sort(function(a, b){
-        let x = new Date(a.release_date);
-        let y = new Date(b.release_date);
-        return x - y;
-      });
-      if(result.destination.index !== items.indexOf(tempMovie)){
-        setLives(lives-1);
-        items[items.indexOf(tempMovie)].correct = false;
-
+    // console.log(result)
+    if(result.destination !== null){
+      if(result.source.droppableId ==='next' && result.destination.droppableId ==='played'){
+        card.movies.push(gameCard);
         
-        document.body.style.backgroundColor = "#9F2D4D";
-        setTimeout(() => {
-          document.body.style.backgroundColor = "#25274D";
-        }, 200);
-      }
-      else{
-        setScore(score+1);
-        items[items.indexOf(tempMovie)].correct = true;
-      }
-      setMovie(items);
-      changeMovie();
-      let lastGameCard = JSON.stringify(gameCard);
-      if(lives > 1 ){
-        localStorage.setItem("lastGameCard", lastGameCard);
-      }
-      
-}
+        let tempMovie = card.movies[card.movies.length-1];
 
+        const items = Array.from(movieData);
+        items.splice(result.destination.index, 0, gameCard);
+
+        items.sort(function(a, b){
+          let x = new Date(a.release_date);
+          let y = new Date(b.release_date);
+          return x - y;
+        });
+        if(result.destination.index !== items.indexOf(tempMovie)){
+          // setLives(lives-1);
+          items[items.indexOf(tempMovie)].correct = false;
+
+          
+          document.body.style.backgroundColor = "#9F2D4D";
+          setTimeout(() => {
+            document.body.style.backgroundColor = "#25274D";
+          }, 200);
+        }
+        else{
+          setScore(score+1);
+          items[items.indexOf(tempMovie)].correct = true;
+        }
+        setMovie(items);
+        changeMovie();
+        let lastGameCard = JSON.stringify(gameCard);
+        if(lives > 1 ){
+          localStorage.setItem("lastGameCard", lastGameCard);
+        }
+        
+      }
+    }
   }
 
   return (
