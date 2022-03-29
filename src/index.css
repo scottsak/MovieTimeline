@@ -223,12 +223,17 @@ ul{
 
 
 /* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 800px) {
   .pause{
     top: 10px;
     left: 10px;
     font-size: 15px;
   }
+
+  #gameTitle{
+    font-size: 30px;
+  }
+
   h1{
     font-size: 20px;
   }
@@ -240,4 +245,28 @@ ul{
   .loseButton{
     width: 140px;
   }
+
+  .nextCard{
+    height: 200px;
+  }
+  
+  
+  .boardGame{
+    height: 250px;
+    /* overflow-y: hidden; */
+    /* position: relative; */
+    bottom: 0px;
+  
+  }
+
+  .cardPoster{
+    padding-top: 5px;
+    width: 100px;
+  }
+
+  .card{
+    width: 120px;
+    border-radius: 10px;
+  }
+
 }
