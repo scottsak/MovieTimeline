@@ -35,13 +35,16 @@ const PauseScreen = props => {
           <div className="modal-body">
             <h4>Rules:</h4>
             <p>Drag the top card to the bottom cards in the order of release date.</p>
-            <p>You get 3 lives and every wrongly placed card loses one life.</p>
-            <p> <br></br></p>
+            <p>You get 3 lives and every wrongly placed card loses one life.<br></br></p>
+            <h4>Note:</h4>
+            <p>This app is a work in progress, there are still bugs to be squashed so know they are being worked on. <br></br>
+            Please contact me <a href = "mailto: scottsakuraigames@gmail.com"> @scottsakuraigames </a>if you have any notes or ideas to help this app become great! </p>
             <p className="copyright">Used TMDB for movie content</p>
             <a href="https://www.themoviedb.org/?language=en-US"><img width='100px' src='https://www.themoviedb.org/assets/2/v4/logos/v2/blue_short-8e7b30f73a4020692ccca9c88bafe5dcb6f8a62a4c6bc55cd9ba82bb2cd95f6c.svg' alt="the movie database"></img></a>
           </div>
           <div className="modal-footer">
             <p className="owner">Created and developed by Scott Sakurai</p>
+            <p className="owner"></p>
           </div>
         </div>
       </div>

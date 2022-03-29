@@ -7,6 +7,10 @@ body {
   overflow: hidden; /* Hide scrollbars */
 }
 
+a{
+  color: inherit;
+}
+
 ul{
   padding-left: 0px;
 }
