@@ -61,6 +61,7 @@ function App() {
           return x - y;
         });
         if(result.destination.index !== items.indexOf(tempMovie)){
+          // ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
           setLives(lives-1);
           items[items.indexOf(tempMovie)].correct = false;
 

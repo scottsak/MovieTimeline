@@ -25,13 +25,17 @@ const movieQueued = [
   }
 ];
 
+const movieIDs = [542349012]
+
 function addMovie(movie) {
     let randNum = Math.floor(Math.random() * (19 - 1 + 0)) + 0;
     let movieFound = true;
     let count=0;
     let mov = {};
+    // console.log(movie.data.results)
+    console.log(movieIDs)
     while(movieFound){
-      if(!movie.data.results[randNum].adult && movie.data.results[randNum].vote_count > 1500){
+      if(!movie.data.results[randNum].adult && movie.data.results[randNum].vote_count > 1500 && !movieIDs.includes(movie.data.results[randNum].id)){
         mov = {
             key: movie.data.results[randNum].id,
             poster_path: "https://image.tmdb.org/t/p/original/"+movie.data.results[randNum].poster_path,
@@ -40,6 +44,7 @@ function addMovie(movie) {
             id: movie.data.results[randNum].id,
             correct: null
         }
+        movieIDs.push(movie.data.results[randNum].id)
         movieQueued.push(mov);
         movieFound=false;
       }
@@ -48,10 +53,13 @@ function addMovie(movie) {
         count++;
       }
       else{
+        console.log("changed movie\n\n\n\n\n\n\n")
         api.newMovie();
         break;
       }
     }
 }
+
+
 
 export {addMovie, movies, movieQueued};
