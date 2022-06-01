@@ -36,6 +36,15 @@ function Card(props){
     }
   }
 
+  function Findposter(){
+    // console.log(props.poster)
+    // console.log("------------------------------------")
+    if(props.poster === null){
+      return "https://motivatevalmorgan.com/wp-content/uploads/2016/06/default-movie.jpg"
+    }
+    return props.poster
+  }
+
 
   return(
     
@@ -48,7 +57,7 @@ function Card(props){
             {...provided.draggableProps}
             {...provided.dragHandleProps}>
 
-            <img className = "cardPoster" src={props.poster} alt={props.title}/>
+            <img className = "cardPoster" src={Findposter()} alt={props.title}/>
             <CardUsed
               used = {props.used}
               date = {props.date}
