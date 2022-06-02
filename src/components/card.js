@@ -33,7 +33,6 @@ function addMovie(movie) {
     let count=0;
     let mov = {};
     // console.log(movie.data.results)
-    console.log(movieIDs)
     while(movieFound){
       if(!movie.data.results[randNum].adult && movie.data.results[randNum].vote_count > 1500 && !movieIDs.includes(movie.data.results[randNum].id)){
         mov = {
@@ -53,7 +52,6 @@ function addMovie(movie) {
         count++;
       }
       else{
-        console.log("changed movie\n\n\n\n\n\n\n")
         api.newMovie();
         break;
       }
