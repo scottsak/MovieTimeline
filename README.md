@@ -6,4 +6,4 @@ This is a game similar to the higher or lower game. Users will be given movie po
 
 Users will get 3 lives. As the game goes on it gets much harder.
 
-Play here: https://secure-basin-13180.herokuapp.com/
+Play here: screentimepictures.netlify.app
